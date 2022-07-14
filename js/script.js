@@ -11,8 +11,9 @@ function getMovie(search) {
         "success": function(results) {
             $("#search").html("Search : " + search);
             $.each(results.Search, function(i, val) {
+                
                 $("#movie-row").append(`
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-4 mb-3">
                         <div class="card">
                         <img src="`+ val.Poster +`" class="img-fluid">
                             <div class="card-body">
@@ -39,7 +40,8 @@ $("document").ready(function() {
     });
 
     $("#search-input").on("keyup", function(e) {
-        if(e.key == "Enter") {
+        if(e.keyCode === 13) {
+            e.preventDefault();
             $("#search").html('');
             $("#movie-row").html('');
             let search = $("#search-input").val();
