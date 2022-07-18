@@ -9,7 +9,7 @@ function getMovie(search) {
             "s": search
         },
         "success": function(results) {
-            $("#search").html("Search : " + search);
+            $("#search").html("Results for : " + search);
             $.each(results.Search, function(i, val) {
                 
                 $("#movie-row").append(`
